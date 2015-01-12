@@ -67,14 +67,43 @@
     
         if($mysqlfetcharray['perm'] == "can")
         {
-            do {
+            $first = "e67e22";
+                $second = "e74c3c";
+                $third = "3498db";
+                $forth = "9b59b6";
+                $fivth = "f1c40f";
+    
+                do {
+                    $rand = rand(1,5);
+                    
+                    if($rand == 1)
+                    {
+                        $color = $first;
+                    }
+                    elseif($rand == 2)
+                    {
+                        $color = $second;
+                    }
+                    elseif($rand == 3)
+                    {
+                        $color = $third;
+                    }
+                    elseif($rand == 4)
+                    {
+                        $color = $forth;
+                    }
+                    else
+                    {
+                        $color = $fivth;
+                    }
+                    
                     printf('
             <tr>
                 <td>%s</td>
-                <td class="img-center"><a href="' . $sitedomain . 'view.php?id=%s"><img src="' . $sitedomain . 'img/' . '%s" class="img-rounded" width="50" height="50" alt="%s"></a></td>
+                <td class="center"><div style="background-color: #%s" class="shape">%s</div></td>
                 <td><a href="' . $sitedomain . 'view.php?id=%s"><p>%s %s</p></a></td>
                 <td>%s</td>
-            </tr>',$mysqlfetcharray['id'],$mysqlfetcharray['id'],$mysqlfetcharray['img'],$mysqlfetcharray['name'],$mysqlfetcharray['id'],$mysqlfetcharray['name'],$mysqlfetcharray['warn'],$mysqlfetcharray['cost']);   
+            </tr>',$mysqlfetcharray['id'],$color,$mysqlfetcharray['first_letter'],$mysqlfetcharray['id'],$mysqlfetcharray['name'],$mysqlfetcharray['warn'],$mysqlfetcharray['cost']);   
                 } while($mysqlfetcharray = mysql_fetch_array($selectall));
         }
         else {

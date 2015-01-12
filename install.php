@@ -156,7 +156,7 @@
         
         mysql_query("CREATE TABLE IF NOT EXISTS `goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `img` text COLLATE utf8_bin NOT NULL,
+  `first_letter` text COLLATE utf8_bin NOT NULL,
   `full_img` text COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
   `name` text COLLATE utf8_bin NOT NULL,
@@ -166,7 +166,7 @@
   `perm` text COLLATE utf8_bin COMMENT 'can/cant',
   `unlim` text COLLATE utf8_bin NOT NULL COMMENT 'yes/no',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;");
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;");
         
        echo '<h1>Успешно! Удалите файл install.php Для завершения установки.</h1>';
     }
