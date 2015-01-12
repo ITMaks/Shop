@@ -2,6 +2,7 @@
     include 'settings.php';
     include 'lang/' . $systemlang . '.php';
     echo '
+    <meta charset="utf-8" />
 <!-- Start SiteHeart code -->
 <script>
 (function(){
