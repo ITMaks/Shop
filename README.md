@@ -1,4 +1,3 @@
-<img src="https://raw.githubusercontent.com/ITMaks/Shop/master/shop.png">
 # ShopCMS
 ShopCMS - это бесплатный движок для магазина цифровых товаров.
 
