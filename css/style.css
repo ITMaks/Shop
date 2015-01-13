@@ -1,0 +1,72 @@
+.shop-area {
+    background: #F8F8F8;   
+}
+.margin-top10 {
+    margin-top: 10px;   
+}
+.new {
+    color: white;
+    padding: 2px;
+    margin: 1px;
+    background-color: red;
+    border-radius: 5px;
+}
+.hot {
+    color: white;
+    padding: 2px;
+    margin: 1px;
+    background-color: orange;
+    border-radius: 5px;
+}
+.footer-text {
+    color: grey;   
+}
+.margin-top50 {
+    padding-top: 50px; 
+}
+.skype-nick {
+    margin-left: 4px;   
+}
+.vk-nick {
+    margin-left: 4px;   
+}
+.icq-nick {
+    margin-left: 4px;   
+}
+.img-center {
+    text-align: center;
+}
+.paddign-top50 {
+    padding-top: 50px;   
+}
+.padding10 {
+     margin: 10px;   
+}
+.center {
+     text-align: center;   
+}
+
+.shape {
+  border-radius: 5px;
+  text-shadow: rgba(23, 23, 23, 0.7) 1px 1px,
+    rgba(23, 23, 23, 0.7) 2px 2px,
+    rgba(23, 23, 23, 0.7) 3px 3px,
+    rgba(23, 23, 23, 0.7) 4px 4px,
+    rgba(23, 23, 23, 0.7) 5px 5px,
+    rgba(23, 23, 23, 0.7) 6px 6px,
+    rgba(23, 23, 23, 0.7) 7px 7px,
+    rgba(23, 23, 23, 0.6) 8px 8px,
+    rgba(23, 23, 23, 0.5) 9px 9px,
+    rgba(23, 23, 23, 0.4) 10px 10px,
+    rgba(23, 23, 23, 0.3) 11px 11px,
+    rgba(23, 23, 23, 0.2) 12px 12px,
+    rgba(23, 23, 23, 0.1) 13px 13px,
+    rgba(23, 23, 23, 0.05) 14px 14px,
+    rgba(23, 23, 23, 0) 15px 15px;
+  height: 50px;
+  width: 50px;
+  font-size: 35px;
+  text-align: center;
+  color: #ffffff;
+    margin: auto;
+}
