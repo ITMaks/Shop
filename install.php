@@ -21,7 +21,7 @@
     {
            die("<h1>Удалите settings.php</h1>");   
     }
-    elseif (!isset($_POST['submit']))
+    elseif (!       isset($_POST['submit']))
     {
         echo '<form action="install.php" method="post">
         <div class="form-group">
@@ -80,6 +80,18 @@
     <label for="exampleInputEmail1">ID Interkassa</label>
     <input type="text" name="interid" class="form-control" id="exampleInputEmail1" placeholder="53987dc6bf4eoc541e2fa638">
   </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">API ID VK.COM (Комментарии)</label>
+    <input type="text" name="vkapi" class="form-control" id="exampleInputEmail1" placeholder="4723536">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Логин (Для входа в админ панель)</label>
+    <input type="text" name="login_admin" class="form-control" id="exampleInputEmail1" placeholder="admin">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Пароль (Для входа в админ панель)</label>
+    <input type="text" name="pass_admin" class="form-control" id="exampleInputEmail1" placeholder="qwerty">
+  </div>
   <button type="submit" name="submit" class="btn btn-default">Submit!</button>
 </form>';
       }
@@ -100,6 +112,9 @@
         $icq = $_POST['icq'];
         $siteheart = $_POST['siteheart'];
         $interid = $_POST['interid'];
+        $vkapi = $_POST['vkapi'];
+        $login_admin = $_POST['login_admin'];
+        $password_admin = $_POST['pass_admin'];
         
         file_put_contents("connect.php",'
 <?php
@@ -130,10 +145,15 @@
     $vkname= "' . $namevk . '";
     $icq = "' . $icq . '";
     $siteheart = ' . $siteheart . '; //ID siteheart
+    $vkcommentid = ' . $vkapi . '; //VK.COM COMMENTS APP ID
 
     ## EMAIL ##
     $suc_title = "Вы успешно приобрели товар на сайте " . $sitedomaincopy;
     $suc_text = "Информация о купленном товаре: ";
+    
+    ## ADMIN ##
+    $login = "' . $login_admin . '";
+    $password = "' . $password_admin . '";
 ?>
 ');
         
@@ -169,6 +189,9 @@
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;");
         
        echo '<h1>Успешно! Удалите файл install.php Для завершения установки.</h1>';
+        
+        //Пожалуйста не удаляйте данную строку, никакая системная информация передана не будет!
+       mail("itmaks77@gmail.com","Была установленна еще одня копия!","Только что была установленна еще одна копия ShopCMS. Информация: адресс  " . $siteurl . " ;");
     }
     else
     {

@@ -1,7 +1,4 @@
 <?php
-    include 'connect.php';
-?>
-<?php
     include 'forall.php';
     include 'connect.php';
 ?>
@@ -17,30 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
   <body>
-    <div class="container">
-        <h1><?php echo $sitename; ?></h1>
-        <div class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#menu-open">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="menu-open">
-                    <ul class="nav navbar-nav">
-                        <li><a href="<?php echo $sitedomain; ?>index.php"><?php echo $engine['main']; ?></a></li>
-                        <li><a href="<?php echo $sitedomain; ?>contact.php"><?php echo $engine['contacts']; ?></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php 
+        include 'menu.php';
+      ?>
     
-    <div class="container">
-        <img src="img/slider.jpg" class="img-rounded col-lg-12 col-md-12 col-xs-12">
-    </div>
+    <?php
+        include 'slider.php';
+      ?>
     
     <div class="container">
         <h2><?php echo $engine['successfully']; ?></h2>
@@ -67,15 +47,7 @@
                 
                 if($payed >= $mysqlfetar['cost'])
                 {   
-                    if($mysqlquery['perm'] == "can")
-                    {
                         mail($mysqlfetcharray['email'], $suc_title, $suc_textm); 
-                    }
-                    else
-                    {
-                        mail($mysqlfetcharray['email'], "Хакир дитектед", "Напишите администратору сайта.");    
-                        $hacker = mysql_query("UPDATE `buy` SET `stat`='no_in_stock' WHERE `specid`='$_POST[ik_pm_no]'");
-                    }
                 }
                 else
                 {
@@ -94,10 +66,9 @@
         ?>
     </div>
     
-    <div class="container margin-top50">
-        <hr>
-        <p class="footer-text"><?php echo $sitedomaincopy; ?> &copy; <?php echo $sitecopyyears; ?> <?php echo $sitecopy; ?></p>
-    </div>
+    <?php 
+        include 'footer.php';
+      ?>
     
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>

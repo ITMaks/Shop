@@ -16,35 +16,18 @@
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 
     <script type="text/javascript">
-        VK.init({apiId: 4723536, onlyWidgets: true});
+        VK.init({apiId: <?php echo $vkcommentid;?>, onlyWidgets: true});
     </script>
 
   </head>
   <body>
-    <div class="container">
-        <h1><?php echo $sitename; ?></h1>
-        <div class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#menu-open">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="menu-open">
-                    <ul class="nav navbar-nav">
-                        <li><a href="<?php echo $sitedomain; ?>index.php"><?php echo $engine['main']; ?></a></li>
-                        <li><a href="<?php echo $sitedomain; ?>contact.php"><?php echo $engine['contacts']; ?></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php 
+        include 'menu.php';
+      ?>
     
-    <div class="container">
-        <img src="img/slider.jpg" class="img-rounded col-lg-12 col-md-12 col-xs-12">
-    </div>
+    <?php
+        include 'slider.php';
+      ?>
     
     <div class="container">
     <?php
@@ -76,14 +59,16 @@
                    <?php
                     if($showinfo['perm'] == "can")
                     {
-                        echo '<a href="#buy" data-toggle="tab" class="btn btn-danger col-xs-12 col-sm-12 col-md-3 col-lg-3">' . $engine['buy'] . '</a>';
+                        echo '<a href="#buy" data-toggle="tab" class="btn btn-danger col-xs-12 col-sm-12 col-md-3 col-lg-3">' . $engine['buy'] . '</a><br><br>';
+                        echo '<a target="_blank" href="' . $sitedomain . 'help.php#1">' . $engine['how_to_buy'] . '</a>';
                     }
                     else
                     {
-                        echo '<a href="#buy" data-toggle="tab" class="btn btn-danger col-xs-12 col-sm-12 col-md-3 col-lg-3" disabled>' . $engine['no_in_stock'] . '</a>';   
+                        echo '<a href="#buy" data-toggle="tab" class="btn btn-danger col-xs-12 col-sm-12 col-md-3 col-lg-3" disabled>' . $engine['no_in_stock'] . '</a><br><br>';   
+                        echo '<a target="_blank" href="' . $sitedomain . 'help.php#1">' . $engine['how_to_buy'] . '</a>';
                     }
                     ?>
-                   
+                   <img class="col-xs-12 col-sm-12 col-md-3 col-lg-3 img img-rounded" src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<? echo $sitedomain . 'view.php?id=' . $_GET['id']; ?>">
                </div>
                <div class="tab-pane fade" id="buy">
                   <h2><?php echo $engine['checkout']; ?></h2>
@@ -107,21 +92,22 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
      <?php
-                    if($showinfo['perm'] == "can")
-                    {
-                        echo '<button type="submit" name="buy" class="btn btn-default">' . $engine['buy'] . '</button>';
-                    }
-                    else
-                    {
-                        echo '<button type="submit" name="buy" class="btn btn-default" disabled>' . $engine['no_in_stock'] . '</button>';   
-                    }
-                    ?>
+        if($showinfo['perm'] == "can")
+        {
+            echo '<button type="submit" name="buy" class="btn btn-default">' . $engine['buy'] . '</button>';
+        }
+        else
+        {
+            echo '<button type="submit" name="buy" class="btn btn-default" disabled>' . $engine['no_in_stock'] . '</button>';   
+        }
+    ?>
     </div>
   </div>
 </form>
                </div>
                <div class="tab-pane fade" id="comments">
                   <h2><?php echo $engine['leave_feedback']; ?></h2>
+                  <a target="_blank" href="<? echo $sitedomain; ?>help.php#2"><? echo $engine['how_to_feedback']; ?></a>
                    <div id="vk_comments<?php echo $id; ?>" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 paddign-top50"></div>
                         <script type="text/javascript">
                             VK.Widgets.Comments("vk_comments<?php echo $id; ?>", {limit: 10, attach: false});
@@ -132,10 +118,9 @@
         </div>
     </div>
     
-    <div class="container margin-top50">
-        <hr>
-        <p class="footer-text"><?php echo $sitedomaincopy; ?> &copy; <?php echo $sitecopyyears; ?> <?php echo $sitecopy; ?></p>
-    </div>
+    <?php 
+        include 'footer.php';
+      ?>
     
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>
