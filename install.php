@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php echo $sitename; ?></title>
+    <title>Установка ShopCMS</title>
     <meta charset="utf-8" />
-    <meta name="description" content="<?php echo $sitedesc; ?> | Created by Max Dmitriev">
+    <meta name="description" content="Установка | Created by Max Dmitriev">
     <meta name="author" content="Max Dmitriev">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -72,6 +72,18 @@
     <label for="exampleInputEmail1">ICQ</label>
     <input type="text" name="icq" class="form-control" id="exampleInputEmail1" placeholder="1111-2222">
   </div>
+  <div class="radio">
+  <label>
+    <input type="radio" name="siteheart_enable" id="optionsRadios1" value="true" checked>
+    Выключить SiteHeart
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="siteheart_enable" id="optionsRadios2" value="false">
+    Включить SiteHeart
+  </label>
+</div>
   <div class="form-group">
     <label for="exampleInputEmail1">Site Heart id</label>
     <input type="text" name="siteheart" class="form-control" id="exampleInputEmail1" placeholder="753408">
@@ -110,6 +122,7 @@
         $namevk = $_POST['namevk'];
         $skype = $_POST['skype'];
         $icq = $_POST['icq'];
+        $siteheart_enable = $_POST['siteheart_enable'];
         $siteheart = $_POST['siteheart'];
         $interid = $_POST['interid'];
         $vkapi = $_POST['vkapi'];
@@ -144,6 +157,7 @@
     $vk = "' . $idvk . '";
     $vkname= "' . $namevk . '";
     $icq = "' . $icq . '";
+    $siteheart_enable = ' . $siteheart_enable .';
     $siteheart = ' . $siteheart . '; //ID siteheart
     $vkcommentid = ' . $vkapi . '; //VK.COM COMMENTS APP ID
 
@@ -190,8 +204,9 @@
         
        echo '<h1>Успешно! Удалите файл install.php Для завершения установки.</h1>';
         
+        $system_version = "v1.2";
         //Пожалуйста не удаляйте данную строку, никакая системная информация передана не будет!
-       mail("itmaks77@gmail.com","Была установленна еще одня копия!","Только что была установленна еще одна копия ShopCMS. Информация: адресс  " . $siteurl . " ;");
+        mail("itmaks77@gmail.com","Была установленна еще одня копия!","Только что была установленна еще одна копия ShopCMS версии " . $system_version . ". Информация: адресс  " . $siteurl . " ;");
     }
     else
     {

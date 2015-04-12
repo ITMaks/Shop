@@ -13,6 +13,8 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo $sitedomain; ?>admin/index.php">Главная</a></li>
             <li><a href="<?php echo $sitedomain; ?>admin/add.php">Добавить товар</a></li>
+            <li><a href="<?php echo $sitedomain; ?>admin/graphs.php">График</a></li>
+            <li><a href="<?php echo $sitedomain; ?>admin/config.php">Настройки</a></li>
             <li><a href="<?php echo $sitedomain; ?>admin/exit.php">Выйти</a></li>
           </ul>
         </div>

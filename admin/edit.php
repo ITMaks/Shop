@@ -50,13 +50,13 @@
             <h2 class="sub-header">Редактирование товара ID: <? echo $id; ?></h2>
             
            <form action="edit.php" method="post">
-              <div class="form-group">
+            <div class="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="number" name="id" class="form-control" placeholder="1" value="<? echo $end['id']; ?>">
+                <input type="text" name="id" class="form-control" value="<? echo $_GET['id'] ?>" readonly>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Первая буква</label>
-                <input type="text" name="first_letter" class="form-control" placeholder="T" value="<? echo $end['first_letter']; ?>">
+             <div class="form-group">
+                <label for="exampleInputEmail1">Название</label>
+                <input type="text" name="name" class="form-control" placeholder="Тестовая покупка" value="<? echo $end['name']; ?>">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Большое изображение</label>
@@ -69,10 +69,6 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Описание</label>
                 <textarea class="form-control" rows="6" name="description"><? echo $end['description']; ?></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Название</label>
-                <input type="text" name="name" class="form-control" placeholder="Тестовая покупка" value="<? echo $end['name']; ?>">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Значок</label>
@@ -117,7 +113,9 @@
             <?php
                 if(isset($_POST['edit']))
                 {
-                    $do = mysql_query("UPDATE `goods` SET `id`='$_POST[id]',`first_letter`='$_POST[first_letter]',`full_img`='$_POST[full_img]',`description`='$_POST[description]',`name`='$_POST[name]',`warn`='$_POST[warn]',`cost`='$_POST[cost]',`tovar`='$_POST[tovar]',`perm`='$_POST[perm]',`unlim`='$_POST[unlim]' WHERE `id`='$_POST[id]'");   
+                    $first_letter = substr($_POST[name], 0, 1);
+                    
+                    $do = mysql_query("UPDATE `goods` SET `first_letter`='$first_letter', `full_img`='$_POST[full_img]', `description`='$_POST[description]', `name`='$_POST[name]', `warn`='$_POST[warn]', `cost`='$_POST[cost]',`tovar`='$_POST[tovar]', `perm`='$_POST[perm]', `unlim`='$_POST[unlim]' WHERE `id`='$_POST[id]'");   
                 }
             ?>
             

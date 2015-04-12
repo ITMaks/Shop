@@ -82,12 +82,12 @@
     <div class="container">
       
             <form class="form-signin" action="index.php" method="post">
-                <h2 class="form-signin-heading">Please sign in</h2>
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="login" name="login" id="inputEmail" class="form-control" placeholder="Login" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
+                <h2 class="form-signin-heading">Авторизуйтесь</h2>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="login" name="login" id="inputEmail" class="form-control" placeholder="Login" required><br>
+                <label for="inputPassword" class="sr-only">Пароль</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <button class="btn btn-lg btn-primary btn-block" name="enter" type="submit">Login</button>
+                <button class="btn btn-lg btn-primary btn-block" name="enter" type="submit">Войти</button>
               </form>      
               
                </div> <!-- /container -->

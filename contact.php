@@ -11,6 +11,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <? echo $encode_meta; ?>
+    <? include 'siteheart.php'; ?>
   </head>
   <body>
     <?php 

@@ -110,3 +110,10 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+/*
+ * Graphs
+ */
+.graph {
+    margin: auto;
+}

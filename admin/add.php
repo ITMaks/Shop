@@ -42,29 +42,21 @@
             <h2 class="sub-header">Добавление товара</h2>
             
            <form action="add.php" method="post">
-              <div class="form-group">
-                <label for="exampleInputEmail1">ID (НЕ ЗАПОЛНЯТЬ!)</label>
-                <input type="number" name="id" class="form-control" placeholder="1">
+             <div class="form-group">
+                <label for="exampleInputEmail1">Название*</label>
+                <input type="text" name="name" class="form-control" placeholder="Тестовая покупка" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Первая буква</label>
-                <input type="text" name="first_letter" class="form-control" placeholder="T">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Большое изображение</label>
-                <input type="text" name="full_img" class="form-control" placeholder="nope.png">
+                <label for="exampleInputEmail1">Большое изображение*</label>
+                <input type="text" name="full_img" class="form-control" value="nope.png" placeholder="nope.png" required>
               </div>
               <div class="alert alert-warning alert-dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <strong>Подсказка:</strong> Изображение загружать в папку img/full/ а сюда писать только название. Пример: "test.png". Если изображения нету напишите "nope.png".
                 </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Описание</label>
-                <textarea class="form-control" rows="6" name="description"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Название</label>
-                <input type="text" name="name" class="form-control" placeholder="Тестовая покупка">
+                <label for="exampleInputEmail1">Описание*</label>
+                <textarea class="form-control" rows="6" name="description" required></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Значок</label>
@@ -75,41 +67,57 @@
                     <strong>Пример:</strong>  &lt;sup class="new">NEW&lt;/sup> = <sup class="new">NEW</sup> ; &lt;sup class="hot">-15%&lt;/sup> = <sup class="hot">-15%</sup>.
                 </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Стоимость</label>
-                <input type="text" name="cost" class="form-control" placeholder="2">
+                <label for="exampleInputEmail1">Стоимость*</label>
+                <input type="text" name="cost" class="form-control" placeholder="2" required>
               </div>
               <div class="alert alert-warning alert-dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <strong>Подсказка:</strong> указывать нужно только число.
                 </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Товар</label>
-                <input type="text" name="tovar" class="form-control" placeholder="Логин:Пароль">
+                <label for="exampleInputEmail1">Товар*</label>
+                <input type="text" name="tovar" class="form-control" placeholder="Логин:Пароль" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Возможность покупать</label>
-                <input type="text" name="perm" class="form-control" placeholder="can">
+              <label for="exampleInputEmail1">Параметры*</label>
+              <div class="radio">
+                  <label>
+                    <input type="radio" name="perm" id="optionsRadios1" value="can" checked>
+                    Можно купить
+                  </label>
               </div>
-              <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <strong>Подсказка:</strong> can - товар можно купить ; cant - товара нельзя купить.
-                </div>
+              <div class="radio">
+                  <label>
+                    <input type="radio" name="perm" id="optionsRadios1" value="cant">
+                    Нельзя купить
+                  </label>
+              </div>
+              </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Кол-во</label>
-                <input type="text" name="unlim" class="form-control" placeholder="yes">
+              <label for="exampleInputEmail1">Кол-во*</label>
+              <div class="radio">
+                  <label>
+                    <input type="radio" name="unlim" id="optionsRadios1" value="no" checked>
+                    Товар одноразовый
+                  </label>
               </div>
-              <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <strong>Подсказка:</strong> yes - товар бесконечный ; no - товар можно купить только один раз.
-                </div>
-
+              <div class="radio">
+                  <label>
+                    <input type="radio" name="unlim" id="optionsRadios1" value="yes">
+                    Товар многоразовый
+                  </label>
+              </div>
+              </div>
+              
               <button type="submit" name="add" class="btn btn-default">Добавить</button>
             </form>
            
             <?php
                 if(isset($_POST['add']))
                 {
-                    $do = mysql_query("INSERT INTO `goods`(`first_letter`, `full_img`, `description`, `name`, `warn`, `cost`, `tovar`, `perm`, `unlim`) VALUES ('$_POST[first_letter]','$_POST[full_img]','$_POST[description]','$_POST[name]','$_POST[warn]','$_POST[cost]','$_POST[tovar]','$_POST[perm]','$_POST[unlim]')") or die(mysql_error);   
+                    $first_letter = substr($_POST[name], 0, 1);
+                    
+                    $do = mysql_query("INSERT INTO `goods`(`first_letter`, `full_img`, `description`, `name`, `warn`, `cost`, `tovar`, `perm`, `unlim`) VALUES ('$first_letter','$_POST[full_img]','$_POST[description]','$_POST[name]','$_POST[warn]','$_POST[cost]','$_POST[tovar]','$_POST[perm]','$_POST[unlim]')") or die(mysql_error);   
                 }
             ?>
             
